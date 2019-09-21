@@ -83,8 +83,8 @@ class Authentication {
   ///     String sessionId = await tmdb.authentication.newSession('TOKEN_HERE');
   Future<String> newSession(String token) async {
     _Params params = new _Params();
-    _checkNotNull(token, 'token');
-    params['token'] = token;
+    _checkNotNull(token, 'request_token');
+    params['request_token'] = token;
     Map resp = await _core._query('authentication/session/new', https: true);
     if ((resp != null) && resp['success']) {
       return resp['session_id'];
