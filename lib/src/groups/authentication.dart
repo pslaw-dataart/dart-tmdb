@@ -16,8 +16,13 @@ class Authentication {
   /// The guest session ID obtained by the [newGuestSession] method.
   String get guestSessionId => _guestSessionId;
 
-  void set sessionId(String id) { _sessionId = id; }
-  void set guestSessionId(String id) { _guestSessionId = id; }
+  void set sessionId(String id) {
+    _sessionId = id;
+  }
+
+  void set guestSessionId(String id) {
+    _guestSessionId = id;
+  }
 
   Authentication(this._core);
 
@@ -51,10 +56,10 @@ class Authentication {
   Future<String> validateWithLogin(
       String token, String username, String password) async {
     _Params params = new _Params();
-    _checkNotNull(token, 'token');
+    _checkNotNull(token, 'request_token');
     _checkNotNull(username, 'username');
     _checkNotNull(password, 'password');
-    params['token'] = token;
+    params['request_token'] = token;
     params['username'] = username;
     params['password'] = password;
     Map resp = await _core._query('authentication/token/validate_with_login',
@@ -125,7 +130,8 @@ class Authentication {
   ///     Map userInfo = await tmdb.account.getInfo();
   Future<bool> login(String username, String password) async {
     String token = await newToken();
-    _sessionId = await newSession(await validateWithLogin(token, username, password));
+    _sessionId =
+        await newSession(await validateWithLogin(token, username, password));
     return true;
   }
 
