@@ -63,7 +63,7 @@ class Authentication {
     params['username'] = username;
     params['password'] = password;
     Map resp = await _core._query('authentication/token/validate_with_login',
-        https: true);
+        https: true, params: params);
     if ((resp != null) && resp['success']) {
       return resp['request_token'];
     } else {
@@ -85,7 +85,8 @@ class Authentication {
     _Params params = new _Params();
     _checkNotNull(token, 'request_token');
     params['request_token'] = token;
-    Map resp = await _core._query('authentication/session/new', https: true);
+    Map resp = await _core._query('authentication/session/new',
+        https: true, params: params);
     if ((resp != null) && resp['success']) {
       return resp['session_id'];
     } else {
