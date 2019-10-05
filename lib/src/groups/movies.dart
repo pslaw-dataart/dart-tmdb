@@ -288,10 +288,11 @@ class Movies {
   ///
   ///     // Get second page of results
   ///     Map result = await tmdb.movies.getNowPlaying(page: 2);
-  Future<Map> getNowPlaying({int page, String language}) {
+  Future<Map> getNowPlaying({int page, String language, String region}) {
     _Params params = new _Params();
     params['page'] = page;
     params['language'] = language;
+	params['region'] = region;
     return _core._query('movie/now_playing', params: params);
   }
 
@@ -305,10 +306,11 @@ class Movies {
   ///
   ///     // Get second page of results
   ///     Map result = await tmdb.movies.getPopular(page: 2);
-  Future<Map> getPopular({int page, String language}) {
+  Future<Map> getPopular({int page, String language, String region}) {
     _Params params = new _Params();
     params['page'] = page;
     params['language'] = language;
+	params['region'] = region;
     return _core._query('movie/popular', params: params);
   }
 
@@ -322,10 +324,11 @@ class Movies {
   ///
   ///     // Get second page of results
   ///     Map result = await tmdb.movies.getTopRated(page: 2);
-  Future<Map> getTopRated({int page, String language}) {
+  Future<Map> getTopRated({int page, String language, String region}) {
     _Params params = new _Params();
     params['page'] = page;
     params['language'] = language;
+	params['region'] = region;
     return _core._query('movie/top_rated', params: params);
   }
 
@@ -339,10 +342,11 @@ class Movies {
   ///
   ///     // Get second page of results
   ///     Map result = await tmdb.movies.getUpcoming(page: 2);
-  Future<Map> getUpcoming({int page, String language}) {
+  Future<Map> getUpcoming({int page, String language, String region}) {
     _Params params = new _Params();
     params['page'] = page;
     params['language'] = language;
+	params['region'] = region;
     return _core._query('movie/upcoming', params: params);
   }
 }
