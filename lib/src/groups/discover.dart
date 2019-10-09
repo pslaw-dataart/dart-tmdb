@@ -18,6 +18,7 @@ class Discover {
       {String certificationCountry,
       String certification,
       String certificationLTE,
+	  String certificationGTE,
       bool includeAdult,
       bool includeVideo,
       String language,
@@ -32,24 +33,32 @@ class Discover {
       int voteCountLTE,
       int voteAverageGTE,
       int voteAverageLTE,
+	  int withReleaseType,
       String withCast,
       String withCrew,
       String withCompanies,
       String withGenres,
       String withKeywords,
       String withPeople,
-      int year}) {
+	  int withRuntimeGTE,
+	  int withRuntimeLTE,
+	  String withOriginalLanguage,
+      int year,
+	  String withoutGenres,
+	  String withoutKeywords,
+	  }) {
     _Params params = new _Params();
     params['certification_country'] = certificationCountry;
     params['certification'] = certification;
     params['certification.lte'] = certificationLTE;
-    params['include_Adult'] = includeAdult;
+	params['certification.gte'] = certificationGTE;
+    params['include_adult'] = includeAdult;
     params['include_video'] = includeVideo;
     params['language'] = language;
     params['page'] = page;
     params['primary_release_year'] = primaryReleaseYear;
-    params['primary_release_Date.gte'] = primaryReleaseDateGTE;
-    params['primary_release_Date.lte'] = primaryReleaseDateLTE;
+    params['primary_release_date.gte'] = primaryReleaseDateGTE;
+    params['primary_release_date.lte'] = primaryReleaseDateLTE;
     params['release_date.gte'] = releaseDateGTE;
     params['release_date.lte'] = releaseDateLTE;
     params['sort_by'] = sortBy;
@@ -57,14 +66,20 @@ class Discover {
     params['vote_count.lte'] = voteCountLTE;
     params['vote_average.gte'] = voteAverageGTE;
     params['vote_average.lte'] = voteAverageLTE;
-    params['with_cast'] = withCast;
+    params['with_release_type'] = withReleaseType;
+	params['with_cast'] = withCast;
     params['with_crew'] = withCrew;
     params['with_companies'] = withCompanies;
     params['with_genres'] = withGenres;
     params['with_keywords'] = withKeywords;
     params['with_people'] = withPeople;
+	params['with_runtime.gte'] = withRuntimeGTE;
+	params['with_runtime.lte'] = withRuntimeLTE;
+	params['with_original_language'] = withOriginalLanguage;
     params['year'] = year;
-    return _core._query('dicover/movie', params: params);
+	params['without_genres'] = withoutGenres;
+	params['without_keywords'] = withoutKeywords;
+    return _core._query('discover/movie', params: params);
   }
 
   /// Discover TV shows by different types of data like average rating, number of votes, genres, the network they aired on and air dates.
