@@ -14,44 +14,46 @@ class Discover {
   /// You can get a valid list of certifications from the "certifications" method.
   ///
   /// Refer to the [official API documentation](http://docs.themoviedb.apiary.io/#reference/discover/discovermovie) for information on every available option.
-  Future<Map> movies(
-      {String certificationCountry,
-      String certification,
-      String certificationLTE,
-	  String certificationGTE,
-      bool includeAdult,
-      bool includeVideo,
-      String language,
-      int page,
-      int primaryReleaseYear,
-      String primaryReleaseDateGTE,
-      String primaryReleaseDateLTE,
-      String releaseDateGTE,
-      String releaseDateLTE,
-      String sortBy,
-      int voteCountGTE,
-      int voteCountLTE,
-      int voteAverageGTE,
-      int voteAverageLTE,
-	  int withReleaseType,
-      String withCast,
-      String withCrew,
-      String withCompanies,
-      String withGenres,
-      String withKeywords,
-      String withPeople,
-	  int withRuntimeGTE,
-	  int withRuntimeLTE,
-	  String withOriginalLanguage,
-      int year,
-	  String withoutGenres,
-	  String withoutKeywords,
-	  }) {
+  Future<Map> movies({
+    String region,
+    String certificationCountry,
+    String certification,
+    String certificationLTE,
+    String certificationGTE,
+    bool includeAdult,
+    bool includeVideo,
+    String language,
+    int page,
+    int primaryReleaseYear,
+    String primaryReleaseDateGTE,
+    String primaryReleaseDateLTE,
+    String releaseDateGTE,
+    String releaseDateLTE,
+    String sortBy,
+    int voteCountGTE,
+    int voteCountLTE,
+    int voteAverageGTE,
+    int voteAverageLTE,
+    int withReleaseType,
+    String withCast,
+    String withCrew,
+    String withCompanies,
+    String withGenres,
+    String withKeywords,
+    String withPeople,
+    int withRuntimeGTE,
+    int withRuntimeLTE,
+    String withOriginalLanguage,
+    int year,
+    String withoutGenres,
+    String withoutKeywords,
+  }) {
     _Params params = new _Params();
+    params['region'] = region;
     params['certification_country'] = certificationCountry;
     params['certification'] = certification;
     params['certification.lte'] = certificationLTE;
-	params['certification.gte'] = certificationGTE;
+    params['certification.gte'] = certificationGTE;
     params['include_adult'] = includeAdult;
     params['include_video'] = includeVideo;
     params['language'] = language;
@@ -67,18 +69,18 @@ class Discover {
     params['vote_average.gte'] = voteAverageGTE;
     params['vote_average.lte'] = voteAverageLTE;
     params['with_release_type'] = withReleaseType;
-	params['with_cast'] = withCast;
+    params['with_cast'] = withCast;
     params['with_crew'] = withCrew;
     params['with_companies'] = withCompanies;
     params['with_genres'] = withGenres;
     params['with_keywords'] = withKeywords;
     params['with_people'] = withPeople;
-	params['with_runtime.gte'] = withRuntimeGTE;
-	params['with_runtime.lte'] = withRuntimeLTE;
-	params['with_original_language'] = withOriginalLanguage;
+    params['with_runtime.gte'] = withRuntimeGTE;
+    params['with_runtime.lte'] = withRuntimeLTE;
+    params['with_original_language'] = withOriginalLanguage;
     params['year'] = year;
-	params['without_genres'] = withoutGenres;
-	params['without_keywords'] = withoutKeywords;
+    params['without_genres'] = withoutGenres;
+    params['without_keywords'] = withoutKeywords;
     return _core._query('discover/movie', params: params);
   }
 
