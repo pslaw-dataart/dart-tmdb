@@ -1,6 +1,6 @@
 name: tmdb
 description: A TheMoviedb.org (TMDB) library for Dart.
-version: 1.0
+version: 1.0.0
 author: zengkid <zengkid@msn.com>
 homepage: https://github.com/zengkid/dart-tmdb
 
