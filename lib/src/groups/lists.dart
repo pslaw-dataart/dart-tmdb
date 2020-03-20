@@ -39,7 +39,7 @@ class Lists {
     _checkNotNull(listId, 'listId');
     _checkNotNull(movieId, 'movieId');
     params['movie_id'] = movieId;
-    return _core._query('list/$listId/item_status');
+    return _core._query('list/$listId/item_status', params: params);
   }
 
   /// This method lets users create a new list.
